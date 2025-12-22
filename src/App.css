@@ -1,0 +1,165 @@
+/* Variables de color estilo Nutrición Pastel */
+:root {
+  --bg-color: #F7FBEF; /* Crema verdoso muy suave */
+  --card-bg: #FFFFFF;
+  --primary-green: #88D8B0; /* Menta pastel */
+  --secondary-green: #BEE3DB;
+  --accent-orange: #FFCCB6; /* Papaya pastel */
+  --text-dark: #4A5D5E;
+  --text-light: #8A9A9B;
+  --border-radius: 12px;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 25px rgba(136, 216, 176, 0.2); /* Sombra verdosa */
+  border: 1px solid var(--secondary-green);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* Inputs y Labels */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #EEE;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #FAFAFA;
+  box-sizing: border-box; /* Importante para que no se desborde */
+}
+
+input:focus, textarea:focus {
+  border-color: var(--primary-green);
+  outline: none;
+  background-color: #FFF;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.section {
+  margin-bottom: 1.5rem;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: #EEE;
+  margin: 2rem 0;
+}
+
+/* Opciones Dinámicas */
+.option-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end; /* Alinear abajo para que cuadre con el botón */
+  margin-bottom: 1rem;
+  background: #F9FCF9;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.text-group {
+  flex: 3;
+}
+
+.score-group {
+  flex: 1;
+}
+
+/* Botones */
+.btn-primary, .btn-secondary, .btn-delete {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: transform 0.1s;
+}
+
+.btn-primary:active, .btn-secondary:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background-color: var(--primary-green);
+  color: #FFF;
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1rem;
+  margin-top: 2rem;
+}
+
+.btn-primary:hover {
+  background-color: #76cba0;
+}
+
+.btn-secondary {
+  background-color: var(--accent-orange);
+  color: #5d4037;
+  padding: 10px 20px;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.btn-secondary:hover {
+  background-color: #ffbca0;
+}
+
+.btn-delete {
+  background-color: #FF8A80;
+  color: white;
+  width: 40px;
+  height: 48px; /* Altura ajustada al input */
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1px; /* Ajuste fino de alineación */
+}
+
+.btn-delete:hover {
+  background-color: #FF5252;
+}
