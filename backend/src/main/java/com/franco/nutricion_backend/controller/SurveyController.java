@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/surveys")
+@RequestMapping("/health_self/surveys")
 @CrossOrigin(origins = "*") // Permite peticiones desde cualquier lugar (Vercel)
 public class SurveyController {
 
