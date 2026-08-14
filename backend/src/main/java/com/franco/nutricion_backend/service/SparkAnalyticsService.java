@@ -5,6 +5,7 @@ import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Properties;
 
 @Service
@@ -18,7 +19,7 @@ public class SparkAnalyticsService {
                 .getOrCreate();
     }
 
-    public void analizarPuntajesMedios() {
+    public List<String> analizarPuntajesMedios() {
         // Configurar conexión JDBC hacia tu base de datos
         SparkSession spark = getSparkSession();
         String jdbcUrl = "jdbc:h2:mem:testdb"; // O tu cadena de conexión PostgreSQL/MySQL
@@ -27,17 +28,16 @@ public class SparkAnalyticsService {
         connectionProperties.put("password", "password");
         connectionProperties.put("driver", "org.h2.Driver");
 
-        // 1. Leer tabla de respuestas directamente como DataFrame de Spark
+        // 1. Leer tabla de respuestas directamente como DataFrame de Spark.
         Dataset<Row> respuestasDF = spark.read()
                 .jdbc(jdbcUrl, "SURVEY_RESPONSE", connectionProperties);
 
         // 2. Hacer trasformaciones / Agregaciones de datos
         Dataset<Row> metricas = respuestasDF
                 .groupBy("survey_id")
-                .avg("total_score")
-                .withColumnRenamed("avg(total_score)", "promedioPuntaje");
+                .avg("total_score");
 
         // 3. Mostrar resultado en consola de servidor
-        metricas.show();
+        return metricas.toJSON().collectAsList();
     }
 }
