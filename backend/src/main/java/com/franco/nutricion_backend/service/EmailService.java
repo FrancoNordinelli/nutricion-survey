@@ -25,8 +25,8 @@ public class EmailService {
         });
 
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("tu_email@gmail.com");
-        message.setTo("tu_email@gmail.com"); // O el mail del nutricionista
+        message.setFrom("imnordi@gmail.com");
+        message.setTo("imnordi@gmail.com"); // O el mail del nutricionista
         message.setSubject("Nueva Encuesta Completada: " + surveyTitle);
         message.setText(body.toString());
 
