@@ -90,6 +90,8 @@ flowchart TD
 
 ## 🚀 Próximos Pasos y Tareas Pendientes
 - [ ] **Fix Vercell**: Cirregir el deploy
+- [ ] **Conexión BE y FE**: Prueba FE y BE para crear encuesta, responderla, recibir email y verla en bbdd.
+- [ ] **Mejorar Consignas / Preguntas en la creación de encuestas
 - [ ] **Dashboard Analítico Visual:** Conectar el endpoint de Apache Spark con el Frontend y utilizar librerías como Recharts para visualizar los promedios de nutrición en gráficos interactivos.
 - [ ] **Configuración Dinámica de Emails:** Mejorar la integración de `JavaMailSender` para permitir plantillas HTML dinámicas y configuración de destinatarios desde la interfaz.
 - [ ] **Migración a Producción:** Reemplazar la base de datos H2 (en memoria) por PostgreSQL o MySQL para persistencia de datos permanente.

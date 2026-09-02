@@ -14,6 +14,9 @@ import './App.css'; // Importamos los estilos pastel
  * @returns 
  */
 const SurveyBuilder = () => {
+
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
+
   // Estado inicial del formulario
   const [survey, setSurvey] = useState({
     title: '',
@@ -75,11 +78,11 @@ const SurveyBuilder = () => {
     
     try {
         // Ejemplo de fetch:
-        // const response = await fetch('https://api.tudominio.com/surveys', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(survey)
-        // });
+        const response = await fetch(`${API_URL}/health_self/surveys`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(survey)
+        });
         alert("¡Encuesta de nutrición creada con éxito! (Mira la consola)");
     } catch (error) {
         console.error("Error al guardar", error);

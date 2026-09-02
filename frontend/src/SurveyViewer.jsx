@@ -8,22 +8,23 @@ const SurveyViewer = () => {
   const [answers, setAnswers] = useState({});
   const [loading, setLoading] = useState(true);
 
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
+
   // 1. Simulación: Cargar la encuesta desde el Backend
   useEffect(() => {
     // AQUÍ harías: fetch(`https://tu-api-java.com/surveys/${id}`)
+
+    fetch(`${API_URL}/health_self/surveys/${id}`)
+      .then(response => response.json())
+      .then(data => {
+        setSurvey(data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error("Error al cargar la encuesta:", error);
+        setLoading(false);
+      }); 
     
-    // Por ahora, simulamos una encuesta hardcodeada para probar
-    setTimeout(() => {
-      setSurvey({
-        title: "Hábitos Saludables",
-        description: "Ayúdanos a mejorar tu plan nutricional.",
-        options: [
-          { text: "¿Cuántos litros de agua bebes?", score: 10 },
-          { text: "¿Comes frutas a diario?", score: 5 }
-        ]
-      });
-      setLoading(false);
-    }, 1000);
   }, [id]);
 
   // 2. Manejar las respuestas del cliente
