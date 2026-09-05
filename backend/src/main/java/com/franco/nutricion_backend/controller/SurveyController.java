@@ -11,11 +11,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/health_self/surveys")
 @CrossOrigin(origins = "*") // Permite peticiones desde cualquier lugar (Vercel)
-//SUrveyControlle es el controlador que maneja las rutas relacionadas con encuestas de salud. 
-//Permite crear encuestas, obtener encuestas por ID y recibir respuestas de encuestas, 
-//enviando un correo electrónico con las respuestas recibidas.
-//Este controller es para usuarios administradores, no para usuarios finales. 
-//Los usuarios finales solo pueden enviar respuestas a encuestas existentes.
+
 //TODO: Agregar seguridad y autenticación para que solo los administradores puedan acceder a estas rutas.
 public class SurveyController {
 
